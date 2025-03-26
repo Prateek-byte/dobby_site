@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purchase - Dobby Voice Assistant</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="loader" class="loader"></div>
+    
+    <header class="site-header">
+      <div class="container header-container">
+        <div class="logo">Dobby</div>
+        <nav class="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="versions.html">Versions</a></li>
+            <li><a class="active" href="purchase.html">Purchase</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h2 class="section-title">Purchase Dobby Versions</h2>
+        <div class="products">
+          <div class="product">
+            <h3>Standard Version</h3>
+            <p>Basic functionalities for personal use.</p>
+            <p class="price">$29.99</p>
+            <button class="btn">Buy Now</button>
+          </div>
+          <div class="product">
+            <h3>Pro Version</h3>
+            <p>Advanced features for professional use.</p>
+            <p class="price">$49.99</p>
+            <button class="btn">Buy Now</button>
+          </div>
+          <div class="product">
+            <h3>Enterprise Version</h3>
+            <p>Complete solutions with premium support.</p>
+            <p class="price">$99.99</p>
+            <button class="btn">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 Dobby Voice Assistant. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back-to-Top Button -->
+    <button id="backToTop" title="Back to top">↑</button>
+
+    <!-- JavaScript for Animations and Interactivity -->
+    <script>
+      // Back-to-Top Button functionality
+      const backToTopButton = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Scroll Reveal functionality
+      const revealElements = document.querySelectorAll('.product, .section-title');
+      const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.85;
+        revealElements.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < triggerBottom) {
+            el.classList.add('visible');
+          }
+        });
+      };
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('load', revealOnScroll);
+
+      // Hide Loader on window load
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        loader.style.display = 'none';
+      });
+    </script>
+  </body>
+</html>

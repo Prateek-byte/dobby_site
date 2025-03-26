@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dobby Voice Assistant - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="loader" class="loader"></div>
+    
+    <!-- Fixed Header -->
+    <header class="site-header">
+      <div class="container header-container">
+        <div class="logo">Dobby</div>
+        <nav class="nav">
+          <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="versions.html">Versions</a></li>
+            <li><a href="purchase.html">Purchase</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section with Parallax & Fade Animation -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title">Welcome to Dobby</h1>
+        <p class="hero-subtitle">
+          Your intelligent voice assistant that transforms your daily routine.
+        </p>
+        <a href="https://www.youtube.com/watch?v=your-demo-video" target="_blank" class="btn hero-btn">Watch Demo Video</a>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container features-container">
+        <div class="feature">
+          <div class="feature-icon">🎤</div>
+          <h3 class="feature-title">Voice Control</h3>
+          <p>Interact naturally using your voice for commands and queries.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">Fast & Reliable</h3>
+          <p>Experience instant responses and smooth performance.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🛒</div>
+          <h3 class="feature-title">Multiple Versions</h3>
+          <p>Choose the version that best suits your needs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 Dobby Voice Assistant. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back-to-Top Button -->
+    <button id="backToTop" title="Back to top">↑</button>
+
+    <!-- JavaScript for Animations and Interactivity -->
+    <script>
+      // Back-to-Top Button functionality
+      const backToTopButton = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Scroll Reveal functionality
+      const revealElements = document.querySelectorAll('.feature, .hero-content, .form-container, .product');
+      const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.85;
+        revealElements.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < triggerBottom) {
+            el.classList.add('visible');
+          }
+        });
+      };
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('load', revealOnScroll);
+
+      // Hide Loader on window load
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        loader.style.display = 'none';
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup - Dobby Voice Assistant</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="loader" class="loader"></div>
+    
+    <header class="site-header">
+      <div class="container header-container">
+        <div class="logo">Dobby</div>
+        <nav class="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="versions.html">Versions</a></li>
+            <li><a href="purchase.html">Purchase</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a class="active" href="signup.html">Signup</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container form-container form-card">
+        <h2>Signup</h2>
+        <form action="#" method="post">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" />
+
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" name="phone" placeholder="Enter your phone number" />
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+          <button type="submit" class="btn">Signup</button>
+        </form>
+        <p class="form-note">Already have an account? <a href="login.html">Login here</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 Dobby Voice Assistant. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back-to-Top Button -->
+    <button id="backToTop" title="Back to top">↑</button>
+
+    <!-- JavaScript for Animations and Interactivity -->
+    <script>
+      // Back-to-Top Button functionality
+      const backToTopButton = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Scroll Reveal functionality
+      const revealElements = document.querySelectorAll('.form-container, .feature, .product');
+      const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.85;
+        revealElements.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < triggerBottom) {
+            el.classList.add('visible');
+          }
+        });
+      };
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('load', revealOnScroll);
+
+      // Hide Loader on window load
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        loader.style.display = 'none';
+      });
+    </script>
+  </body>
+</html>
